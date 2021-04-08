@@ -3,10 +3,16 @@
 // is to return the list of integers which are not contained in both lists.
 
 const sync = (arr1, arr2) => {
-    const uniqueElements = [];
+    let uniqueElements = [];
+    let firstSet = findUniqueElements(arr1, arr2)
+    let secondSet = findUniqueElements(arr2, arr1)
     
-    uniqueElements.push(findUniqueElements(arr1, arr2));
-    uniqueElements.push(findUniqueElements(arr2, arr1));
+    if(firstSet.length > 0)
+        uniqueElements.push(firstSet);
+
+    if(secondSet.length > 0)
+        uniqueElements.push(secondSet);
+
     return uniqueElements;
 }
 
@@ -20,6 +26,7 @@ const findUniqueElements = (arrToCheck, control) => {
 
     return uniqueElms;
 }
+
 const testCases = [
     [[1, 2, 3], [1, 3, 4]],
     [[1, 9], [1]],
