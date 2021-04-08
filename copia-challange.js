@@ -3,10 +3,15 @@
 // is to return the list of integers which are not contained in both lists.
 
 const sync = (arr1, arr2) => {
+    // Initialize an array to add the unique elements
     let uniqueElements = [];
+
+    // Get both sets of unique elements
     let firstSet = findUniqueElements(arr1, arr2)
     let secondSet = findUniqueElements(arr2, arr1)
-    
+
+    // Checking each set to see if they contains elements because
+    // I don't want to add a null element (e.g. [9,] ).
     if(firstSet.length > 0)
         uniqueElements.push(firstSet);
 
@@ -16,9 +21,14 @@ const sync = (arr1, arr2) => {
     return uniqueElements;
 }
 
+// This function returns unique elements that exist in one array (the first param)
+// but not in another array (the second param).
 const findUniqueElements = (arrToCheck, control) => {
+    // Initialize and array to hold the unique elements to return
     let uniqueElms = [];
 
+    // Looping through the array to find unique elements and adding them
+    // to the uniqueElems array.
     arrToCheck.forEach(el => {
         if(control.indexOf(el) == -1)
             uniqueElms.push(el);
@@ -37,4 +47,3 @@ testCases.forEach(test => {
     let uniqueElms = sync(test[0], test[1]);
     console.log(`The unique elements in [${test[0]}] and [${test[1]}] are [${uniqueElms}]`);
 })
-// console.log(sync([1, 2, 3], [1, 3, 4]));i
