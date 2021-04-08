@@ -32,8 +32,12 @@ const findUniqueElements = (arrToCheck, control) => {
 
 const testCases = [
     [[1, 2, 3], [1, 3, 4]],
+    [[3, 2, 1], [1, 5, 3, 4]],
     [[1, 9], [1]],
-    [[1, 2, 3], [1, 2, 3]]
+    [[1, 2, 3], [1, 2, 3]],
+    [[1],[]],
+    [[], [1,4,6,9]],
+    [[],[]]
 ]
 
 testCases.forEach(test => {
