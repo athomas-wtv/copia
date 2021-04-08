@@ -7,7 +7,6 @@ const sync = (arr1, arr2) => {
     
     uniqueElements.push(findUniqueElements(arr1, arr2));
     uniqueElements.push(findUniqueElements(arr2, arr1));
-    
     return uniqueElements;
 }
 
@@ -21,4 +20,14 @@ const findUniqueElements = (arrToCheck, control) => {
 
     return uniqueElms;
 }
+const testCases = [
+    [[1, 2, 3], [1, 3, 4]],
+    [[1, 9], [1]],
+    [[1, 2, 3], [1, 2, 3]]
+]
 
+testCases.forEach(test => {
+    let uniqueElms = sync(test[0], test[1]);
+    console.log(`The unique elements in [${test[0]}] and [${test[1]}] are [${uniqueElms}]`);
+})
+// console.log(sync([1, 2, 3], [1, 3, 4]));i
