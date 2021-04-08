@@ -6,13 +6,19 @@ const sync = (arr1, arr2) => {
     const uniqueElements = [];
     
     uniqueElements.push(findUniqueElements(arr1, arr2));
-    findUniqueElements(arr2, arr1)
+    uniqueElements.push(findUniqueElements(arr2, arr1));
     
-
+    return uniqueElements;
 }
 
 const findUniqueElements = (arrToCheck, control) => {
+    let uniqueElms = [];
+
     arrToCheck.forEach(el => {
-        
+        if(control.indexOf(el) == -1)
+            uniqueElms.push(el);
     })
+
+    return uniqueElms;
 }
+
