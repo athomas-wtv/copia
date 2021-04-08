@@ -24,16 +24,9 @@ const sync = (arr1, arr2) => {
 // This function returns unique elements that exist in one array (the first param)
 // but not in another array (the second param).
 const findUniqueElements = (arrToCheck, control) => {
-    // Initialize and array to hold the unique elements to return
-    let uniqueElms = [];
-
-    // Looping through the array to find unique elements and adding them
+    // Filtering the array to find unique elements and adding them
     // to the uniqueElems array.
-    arrToCheck.forEach(el => {
-        if(control.indexOf(el) == -1)
-            uniqueElms.push(el);
-    })
-
+    let uniqueElms = arrToCheck.filter(el => { return control.indexOf(el) == -1 })
     return uniqueElms;
 }
 
