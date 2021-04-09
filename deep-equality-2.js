@@ -35,7 +35,7 @@ const objMatchTest = (obj1, obj2, objKeys) => {
         else
             return equals(obj1[key], obj2[key]);
     });
-    
+
     return match;
 }
 
@@ -48,6 +48,15 @@ console.log("Should be true", equals({"key2" : {"key3": 1} }, {"key2" : {"key3":
 
 console.log("Should be true", equals({"key1" : "value", "key2" : {"key3": 1}},
                                     {"key1" : "value", "key2" : {"key3": 1}}))
+
+console.log("Should be true", equals({"key1" : {"key2": 1}, "key3" : {"key4": 1}, "key5" : {"key6": 1}},
+                                    {"key1" : {"key2": 1}, "key3" : {"key4": 1}, "key5" : {"key6": 1}}))
+
+console.log("Should be true", equals({"key1" : {"key2": 1}, "key3" : {"key4": 1}, "key5" : {"key6": {"key7": 1}}},
+                                    {"key1" : {"key2": 1}, "key3" : {"key4": 1}, "key5" : {"key6": {"key7": 1}}}))
+
+console.log("Should be false", equals({"key1" : "value", "key3" : {"key4": 1}, "key5" : {"key6": 1}},
+                                    {"key1" : {"key2": 1}, "key3" : {"key4": 1}, "key5" : {"key6": 1}}))
 
 console.log("Should be false", equals({"key1" : "value1", "key2" : {"key3": 1}, "key4" : "value2"},
                     {"key1" : "value", "key2" : {"key3": 1}}))
