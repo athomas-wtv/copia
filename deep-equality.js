@@ -25,21 +25,7 @@ const equals = (obj1, obj2) => {
         return false;
     
     return true;
-    // After everything matches, we
-    // let objectsMatch = objMatchTest(obj1, firstObjKeys, obj2);
-    // return objectsMatch;
-    
 }
-
-// const objMatchTest = (obj1, obj1Keys, obj2) => {
-//     let match = obj1Keys.every(key => {
-//         if(typeof obj1[key] != "object" || typeof obj2[key] != "object")
-//             return obj1[key] == obj2[key];
-//         else
-//             return equals(obj1[key], obj2[key]);
-//     });
-//     return match;
-// }
 
 const arraysMatch = (arr1, arr2) => {
     // Check to see if either array has an object
