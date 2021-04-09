@@ -1,3 +1,8 @@
+// For this question we want to show the deep equality of two hashmaps. To simpify the 
+// problem, you can assume that each hash map always uses a string as a key and a map, number, 
+// or string as a value. For the purpose of this problem, you can assume that any equals operator 
+// for two hash maps is not enabled.
+
 const equals = (obj1, obj2) => {
     // Store keys and values of objects into arrays to use
     let firstObjKeys = Object.keys(obj1);
