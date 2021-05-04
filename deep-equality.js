@@ -13,8 +13,8 @@ const equals = (obj1, obj2) => {
     
     // Checking to see if the length of the arrays match. If they don't then
     // the function can terminate since it would be a giveaway that they didn't match
-    let keyArrayLengthMatch = checkArrayLengthMatch(firstObjKeys, secObjKeys);
-    let valueArrayLengthMatch = checkArrayLengthMatch(firstObjValues, secObjValues);
+    let keyArrayLengthMatch = firstObjKeys.length == secObjKeys.length;
+    let valueArrayLengthMatch = firstObjValues.length == secObjValues.length;
     
     if(!keyArrayLengthMatch || !valueArrayLengthMatch)
         return false;
@@ -34,8 +34,8 @@ const equals = (obj1, obj2) => {
 
 const arraysMatch = (arr1, arr2) => {
     // Check to see if either array has an object
-    let ojectFoundInArr1 = objectCheck(arr1);
-    let ojectFoundInArr2 = objectCheck(arr2);
+    let ojectFoundInArr1 = arr1.some(objTypes);
+    let ojectFoundInArr2 = arr2.some(objTypes);
     
     // If they both have objects, then run logic to get both objects and 
     // compare them. More logic could be added to make this full proof
@@ -44,8 +44,8 @@ const arraysMatch = (arr1, arr2) => {
     if(ojectFoundInArr1 && ojectFoundInArr2)
     {
         // Get objects in both array.
-        let objInArr1 = getObjectInArray(arr1);
-        let objInArr2 = getObjectInArray(arr2);
+        let objInArr1 = arr1.find(objTypes);
+        let objInArr2 = arr2.find(objTypes);
 
         // Run them back through the main function to see if they equal. if not, then the arrays 
         // don't equal. If so, remove the object and continue with the execution. Keeping the object 
@@ -55,8 +55,8 @@ const arraysMatch = (arr1, arr2) => {
             return false;
         else
         {
-            arr1 = arr1.filter(removeObjTypes);
-            arr2 = arr2.filter(removeObjTypes);
+            arr1 = arr1.filter(el => typeof el != "object");
+            arr2 = arr2.filter(el => typeof el != "object");
         }
     }
 
@@ -67,12 +67,8 @@ const arraysMatch = (arr1, arr2) => {
     return match;
 }
 
-// These are helper functions for the ES6 functions and to help with readability.
+// Helper function for the ES6 functions to help with readability.
 const objTypes = el => typeof el == "object";
-const getObjectInArray = arr => { return arr.find(objTypes) }
-const objectCheck = arr => { return arr.some(objTypes) }
-const removeObjTypes = el => typeof el != "object";
-const checkArrayLengthMatch = (arr1, arr2) => { return arr1.length == arr2.length }
 
 
 // TEST CASES
